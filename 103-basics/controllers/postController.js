@@ -1,7 +1,11 @@
 export const validateID = (req, res, next, val) => {
   console.log('Value is: ', val)
 
-  if (req.params.id === null || req.params.id === undefined) {
+  /* 
+    Just to show that validation is working fine, null is passed as string here
+    So, while making req, endpoint will contain :id as string null
+  */
+  if (req.params.id === 'null' || req.params.id === undefined) {
     return res
       .status(404)
       .json({

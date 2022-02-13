@@ -9,14 +9,15 @@ import postRoutes from './routes/postRoutes.js'
 */
 
 const app = express()
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   app.use(morgan('dev'))
 }
 /* To parse data comming from requests */
 app.use(express.json())
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 /* To serve static content */
 app.use('/public', express.static(`${__dirname}/static`))

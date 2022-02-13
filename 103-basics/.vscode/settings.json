@@ -1,0 +1,21 @@
+{
+  "explorer.sortOrder": "type",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "path-intellisense.extensionOnImport": true,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "editor.formatOnType": true,
+  "diffEditor.wordWrap": "on",
+  "editor.minimap.maxColumn": 120,
+  "editor.inlineSuggest.enabled": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  },
+  "editor.comments.ignoreEmptyLines": false
+}

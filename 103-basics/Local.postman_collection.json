@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "e20c3ae3-d57c-45c2-8f20-78b37a74582b",
-		"name": "Local",
+		"_postman_id": "df1cc4d1-35ac-41ca-a4bd-af1ae3167973",
+		"name": "103-basics",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -79,6 +79,28 @@
 						"v1",
 						"posts",
 						"90"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post with ID null",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/posts/null",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"null"
 					]
 				}
 			},
