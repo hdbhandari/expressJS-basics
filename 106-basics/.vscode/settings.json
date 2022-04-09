@@ -16,5 +16,6 @@
     "**/node_modules/*/**": true,
     "**/.hg/store/**": true
   },
-  "editor.comments.ignoreEmptyLines": false
+  "editor.comments.ignoreEmptyLines": false,
+  "vscode-corda.isCordaProject": false
 }

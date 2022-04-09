@@ -14,7 +14,7 @@ const app: Application = express()
 config()
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("HIlll")
+  res.send("Hello from expressJS with TypeScript!")
 })
 
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -36,4 +36,6 @@ const errorHandler: ErrorRequestHandler = (
 app.use(errorHandler)
 
 const PORT: Number = Number(process.env.PORT) || 3000
-const server: Server = app.listen(3000, () => console.log("rocket: " + PORT))
+const server: Server = app.listen(3000, () =>
+  console.log("Server is running on Port: " + PORT)
+)

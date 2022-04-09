@@ -4,7 +4,7 @@ import { deletePost, getAllPosts, getPost, savePost, updatePost, validateID } fr
 const router = express.Router()
 
 /* 
-  Whenever and 'id' will be available in the route, it will call the given middleware
+  Whenever an 'id' will be available in the route, it will call the given middleware
 */
 router.param('id', validateID)
 
