@@ -1,7 +1,8 @@
 import mongoose from 'mongoose'
+import { appConfig } from './environment.js'
 
-export const connectMongo = () => mongoose.connect(process.env.DB_CONNECTION, {
+export const connectMongo = () => mongoose.connect(appConfig.DB_CONNECTION, {
   useNewUrlParser: true,
-}).then(() => {
-  console.log('DB Connected! 👌')
+}).then((db) => {
+  console.log(`✔️ DB Connected to: ${appConfig.DB_CONNECTION}`)
 })

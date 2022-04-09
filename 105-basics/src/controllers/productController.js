@@ -1,8 +1,8 @@
 import slugify from 'slugify'
 import Product from '../models/productModel.js'
 import FiltersAndSorting from '../utils/filtersAndSorting.js'
+import { sampleProductsList } from '../../static/products/products.js'
 import handleAsyncError from '../utils/handleAsyncError.js'
-import AppError from '../utils/AppError.js'
 
 export const validateID = (req, res, next, val) => {
   console.log('Value is: ', val)
@@ -47,7 +47,9 @@ export const createProduct = handleAsyncError(async (req, res, next) => {
 })
 
 export const createMultipleProducts = handleAsyncError(async (req, res, next) => {
-  const products = await Product.insertMany(req.body)
+  /* Will add static products list from static file */
+  // const products = await Product.insertMany(req.body)
+  const products = await Product.insertMany(sampleProductsList)
   res.status(201).json({
     status: 'success',
     count: products.length

@@ -14,8 +14,8 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A tour must have a difficulty'],
     enum: {
-      values: ['bakery', 'dairy', 'fruit'],
-      message: 'Type is either: bakery, dairy, fruit'
+      values: ['bakery', 'dairy', 'fruit', 'vegetable'],
+      message: 'Product type \'{VALUE}\' is not allowed.',
     }
   },
   slug: {

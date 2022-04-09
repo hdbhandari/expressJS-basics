@@ -55,7 +55,7 @@ router
   .delete(deleteProduct)
 
 router.route('/util/addMultipleProducts').post(createMultipleProducts)
-router.route('/util/addMissingProductSlug').post(updateAllProductSlug)
+router.route('/util/addMissingProductSlug').patch(updateAllProductSlug)
 router.route('/util/deleteAllProducts').delete(deleteAllProduct)
 
 export default router

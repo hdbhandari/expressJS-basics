@@ -5,9 +5,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "set NODE_ENV=development& nodemon src/server.js",
     "kill": "npx kill-port 5000",
-    "debug": "ndb src/server.js"
+    "debug": "ndb src/server.js",
+    "test": "set NODE_ENV=test&set NODE_OPTIONS=--experimental-vm-modules & jest",
+    "test:debug": "set NODE_ENV=test&set NODE_OPTIONS=--experimental-vm-modules & jest --detectOpenHandles",
+    "test:w": "set NODE_OPTIONS=--experimental-vm-modules & jest --watchAll"
   },
   "keywords": [],
   "author": "Himanshu Bhandari (https://github.com/hdbhandari)",
@@ -20,14 +23,8 @@
     "slugify": "^1.6.5"
   },
   "devDependencies": {
-    "eslint": "^8.8.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "prettier": "^2.5.1"
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2"
   }
 }

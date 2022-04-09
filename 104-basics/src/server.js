@@ -1,10 +1,11 @@
-import 'dotenv/config'
 import app from './app.js'
 import { connectMongo } from './config/db.js'
+import { appConfig } from './config/environment.js'
 
 connectMongo()
 
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}! 👯`)
+// console.log(mongoose.Collection.dbName)
+
+export const server = app.listen(appConfig.PORT, () => {
+  console.log(`✔️ App running on port ${appConfig.PORT}!`)
 })

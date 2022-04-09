@@ -1,11 +1,10 @@
-import Mongoose from 'mongoose'
 import slugify from 'slugify'
 import Product from '../models/productModel.js'
 import FiltersAndSorting from '../utils/filtersAndSorting.js'
+import { sampleProductsList } from '../../static/products/products.js'
 
 export const validateID = (req, res, next, val) => {
   console.log('Value is: ', val)
-
   if (req.params.id === null || req.params.id === undefined) {
     return res
       .status(404)
@@ -64,7 +63,9 @@ export const createProduct = async (req, res) => {
 
 export const createMultipleProducts = async (req, res) => {
   try {
-    const products = await Product.insertMany(req.body)
+    /* Will add static products list from static file */
+    // const products = await Product.insertMany(req.body)
+    const products = await Product.insertMany(sampleProductsList)
     res.status(201).json({
       status: 'success',
       count: products.length

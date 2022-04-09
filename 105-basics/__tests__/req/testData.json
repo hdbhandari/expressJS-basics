@@ -1,0 +1,5 @@
+{
+  "environment": "test",
+  "dbUrl": "mongodb://localhost:27017/105-basics-tests",
+  "dbName": "105-basics-tests"
+}
