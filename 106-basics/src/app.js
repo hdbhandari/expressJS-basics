@@ -10,6 +10,7 @@ import hpp from 'hpp'
 import AppError from './utils/AppError.js'
 import globalErrorHandler from './utils/GlobalErrorHandler.js'
 import productRoutes from './routes/productRoutes.js'
+import userRouter from './routes/userRoutes.js'
 
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 
 /* Routes */
 app.use('/api/v1/products', productRoutes)
+app.use('/api/v1/users', userRouter)
 
 /* Throw error if no routes found */
 app.all('*', (req, res, next) => {

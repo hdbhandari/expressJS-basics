@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import handleAsyncError from '../utils/handleAsyncError.js'
 import AppError from '../utils/AppError.js'
 
-import User from './userController'
+import User from '../models/userModel.js'
 import sendEmail from '../utils/sendEmail.js'
 
 const _signToken = (id) => {
@@ -34,7 +34,7 @@ const _createSendToken = (user, statusCode, res) => {
   user.password = undefined
 
   res.status(statusCode).json({
-    status: 'seccess',
+    status: 'success',
     token,
     data: {
       user
@@ -127,7 +127,7 @@ export const forgotPassword = handleAsyncError(async (req, res, next) => {
   }
 
   /* 2) Generate the random reset token */
-  const resetToken = user.findOne({ email: req.body.email })
+  const resetToken = User.findOne({ email: req.body.email })
   await user.save({ validateBeforeSave: false })
 
   /* 3) Send it to user's email */
@@ -139,7 +139,7 @@ export const forgotPassword = handleAsyncError(async (req, res, next) => {
     await sendEmail({
       email: user.email,
       subject: 'Your password reset token (valid for 10 minutes)',
-      message
+      message: message
     })
 
     res.status(200).json({
@@ -152,7 +152,7 @@ export const forgotPassword = handleAsyncError(async (req, res, next) => {
     await user.save({ validateBeforeSave: false })
 
     return next(
-      new AppError('There was an error sending the email. Try again later!'),
+      new AppError(`There was an error sending the email. Try again later! ${err.message}`),
       500
     )
   }

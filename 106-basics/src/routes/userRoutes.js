@@ -1,5 +1,4 @@
 import express from 'express'
-import { } from '../controllers/js'
 import {
   signup,
   login,
@@ -8,7 +7,7 @@ import {
   protect,
   updatePassword
 } from '../controllers/authController.js'
-import { createUser, deleteMe, deleteUser, getAllUsers, getUser, updateMe, updateUser } from '../controllers/userController'
+import { createUser, deleteMe, deleteUser, getAllUsers, getUser, updateMe, updateUser } from '../controllers/userController.js'
 
 const router = express.Router()
 

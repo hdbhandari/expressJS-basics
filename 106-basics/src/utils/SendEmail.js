@@ -1,14 +1,15 @@
 import nodemailer from 'nodemailer'
-
-export default sendEmail = async options => {
+import 'dotenv/config'
+const sendEmail = async options => {
   // 1) Create a Transporter
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
-    port: process.email.EMAIL_PORT,
-    auth: {
+    port: process.env.EMAIL_PORT,
+    secure: false,
+    /* auth: {
       user: process.env.EMAIL_USERNAME,
       password: process.env.EMAIL_PASSWORD
-    }
+    } */
   })
 
   // 2) Define the email Options
@@ -16,9 +17,12 @@ export default sendEmail = async options => {
     from: 'himanshu@local.email',
     to: options.email,
     subject: options.subject,
-    text: options.message
+    text: options.message,
+    html: options.message
   }
 
   // 3) Send the E-mail
   await transporter.sendMail(mailOptions)
 }
+
+export default sendEmail
